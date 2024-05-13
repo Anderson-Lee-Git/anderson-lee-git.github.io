@@ -468,10 +468,13 @@ footer.sticky-bottom {
     .list-group-item {
       background-color: inherit;
       border-color: var(--global-divider-color);
+      max-width: 100%;
 
       .badge {
         color: var(--global-card-bg-color) !important;
         background-color: var(--global-theme-color) !important;
+        max-width: 100%;
+        font-size: 0.8rem;
       }
     }
   }
