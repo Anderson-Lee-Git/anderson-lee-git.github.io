@@ -372,7 +372,7 @@ ul.task-list input[type="checkbox"] {
   text-align: center;
 
   .contact-icons {
-    font-size: 4rem;
+    font-size: 2rem;
 
     a {
       i::before {
@@ -474,6 +474,10 @@ footer.sticky-bottom {
         color: var(--global-card-bg-color) !important;
         background-color: var(--global-theme-color) !important;
         max-width: 100%;
+        font-size: 0.8rem;
+      }
+
+      .item {
         font-size: 0.8rem;
       }
     }
