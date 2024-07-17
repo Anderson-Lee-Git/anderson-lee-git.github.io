@@ -15,13 +15,13 @@
       "startDate": "2021.09",
       "endDate": "2024.06",
       "score": "10",
-      "items": ["GPA: 3.98 / 4.00", "Departmental Honor"]
+      "items": ["GPA: 3.98 / 4.00", "Departmental Honor", "Magna Cum Laude"]
     }
   ],
   "work": [
     {
       "name": "Stripe",
-      "position": "Incoming Software Engineer Intern",
+      "position": "Software Engineer Intern",
       "location": "Seattle, WA",
       "url": "https://stripe.com/",
       "startDate": "2024.06",
@@ -88,7 +88,15 @@
   "volunteer": [],
   "awards": [],
   "certificates": [],
-  "publications": [],
+  "publications": [
+    {
+      "name": "Fairness through partial awareness: Evaluation of the addition of demographic information for bias mitigation methods",
+      "publisher": "Chung Peng Lee, Rachel Hong, Jamie Morgenstern",
+      "releaseDate": "2024.07",
+      "url": "https://openreview.net/forum?id=e4GjJrfrlb",
+      "summary": "ICML 2024 Next Generation of AI Safety Workshop"
+    }
+  ],
   "skills": [],
   "languages": [],
   "interests": [],
