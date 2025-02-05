@@ -22,7 +22,7 @@ const Experience: React.FC = () => {
         <Box
             component="main"
             sx={{
-                maxWidth: '900px',
+                maxWidth: '1000px',
                 margin: '0 auto',
                 padding: theme.spacing(4)
             }}
@@ -35,7 +35,7 @@ const Experience: React.FC = () => {
                     color: theme.text,
                 }}
             >
-                Other Experience
+                Other Stuffs
             </Typography>
             <Box>
                 {experiencesMock.map((experience, index) => (

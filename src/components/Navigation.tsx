@@ -12,24 +12,24 @@ const Nav = styled.nav<{ theme: any }>`
 `;
 
 const NavContainer = styled.div<{ theme: any }>`
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   display: flex;
   gap: ${props => props.theme.spacing(4)};
   justify-content: flex-end;
-  padding-right: ${props => props.theme.spacing(4)};
+  padding: ${props => `0 ${props.theme.spacing(3)}`};
 `;
 
-const NavLink = styled(Link)<{ isActive: boolean; theme: any }>`
+const NavLink = styled(Link) <{ isActive: boolean; theme: any }>`
   color: ${props => props.isActive ? props.theme.primary : props.theme.text};
   text-decoration: none;
   font-size: ${props => props.theme.typography.nav.fontSize};
   font-weight: ${props => props.theme.typography.nav.fontWeight};
   transition: color 0.2s ease;
   padding-bottom: ${props => props.theme.spacing(1)};
-  border-bottom: 2px solid ${props => 
-    props.isActive ? props.theme.primary : 'transparent'
-  };
+  border-bottom: 2px solid ${props =>
+        props.isActive ? props.theme.primary : 'transparent'
+    };
 
   &:hover {
     color: ${props => props.theme.primary};
@@ -37,37 +37,37 @@ const NavLink = styled(Link)<{ isActive: boolean; theme: any }>`
 `;
 
 interface NavItem {
-  path: string;
-  label: string;
+    path: string;
+    label: string;
 }
 
 const Navigation: React.FC = () => {
-  const { theme } = useTheme();
-  const location = useLocation();
+    const { theme } = useTheme();
+    const location = useLocation();
 
-  const navItems: NavItem[] = [
-    { path: '/about', label: 'About' },
-    { path: '/publications', label: 'Publications' },
-    // { path: '/blog', label: 'Blog' },
-    // { path: '/experience', label: 'Experience' }
-  ];
+    const navItems: NavItem[] = [
+        { path: '/about', label: 'About' },
+        { path: '/publications', label: 'Publications' },
+        // { path: '/blog', label: 'Blog' },
+        // { path: '/experience', label: 'Experience' }
+    ];
 
-  return (
-    <Nav theme={theme}>
-      <NavContainer theme={theme}>
-        {navItems.map((item) => (
-          <NavLink
-            key={item.path}
-            to={item.path}
-            isActive={location.pathname === item.path}
-            theme={theme}
-          >
-            {item.label}
-          </NavLink>
-        ))}
-      </NavContainer>
-    </Nav>
-  );
+    return (
+        <Nav theme={theme}>
+            <NavContainer theme={theme}>
+                {navItems.map((item) => (
+                    <NavLink
+                        key={item.path}
+                        to={item.path}
+                        isActive={location.pathname === item.path}
+                        theme={theme}
+                    >
+                        {item.label}
+                    </NavLink>
+                ))}
+            </NavContainer>
+        </Nav>
+    );
 };
 
 export default Navigation;

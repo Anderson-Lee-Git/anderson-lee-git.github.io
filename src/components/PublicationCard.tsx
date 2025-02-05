@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Typography } from '@mui/material';
+import { Box, Paper, Typography } from '@mui/material';
 import { useTheme } from '../theme/ThemeProvider';
 
 interface PublicationCardProps {
@@ -10,7 +10,7 @@ interface PublicationCardProps {
     url: string;
 }
 
-export const PublicationCard: React.FC<PublicationCardProps> = ({
+const PublicationCard: React.FC<PublicationCardProps> = ({
     title,
     mainAuthors,
     contributors,
@@ -22,16 +22,24 @@ export const PublicationCard: React.FC<PublicationCardProps> = ({
     const formatAuthors = () => {
         const allAuthors = [...mainAuthors, ...contributors];
         return (
-            <Typography sx={{ 
-                ...theme.typography.body1, 
-                color: theme.text 
+            <Typography sx={{
+                ...theme.typography.body1,
+                color: theme.text
             }}>
                 {allAuthors.map((author, index) => (
-                    <React.Fragment key={index}>
-                        {author}
-                        {mainAuthors.includes(author) && " *"}
-                        {index < allAuthors.length - 1 && ", "}
-                    </React.Fragment>
+                    (author === "Chung Peng Lee") ?
+                        <React.Fragment key={index}>
+                            <Box component="span" sx={{ fontWeight: 'bold' }}>
+                                {author}
+                                {mainAuthors.includes(author) && "*"}
+                            </Box>
+                            {index < allAuthors.length - 1 && ", "}
+                        </React.Fragment> :
+                        <React.Fragment key={index}>
+                            {author}
+                            {mainAuthors.includes(author) && " *"}
+                            {index < allAuthors.length - 1 && ", "}
+                        </React.Fragment>
                 ))}
             </Typography>
         );
@@ -79,3 +87,5 @@ export const PublicationCard: React.FC<PublicationCardProps> = ({
         </Paper>
     );
 };
+
+export default PublicationCard;

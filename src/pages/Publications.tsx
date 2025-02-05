@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, Box } from '@mui/material';
 import { useTheme } from '../theme/ThemeProvider';
-import { PublicationCard } from '../components/PublicationCard';
+import PublicationCard from '../components/PublicationCard';
 import publicationsData from '../data/publications.json';
 
 const Publications: React.FC = () => {
@@ -11,7 +11,7 @@ const Publications: React.FC = () => {
         <Box
             component="main"
             sx={{
-                maxWidth: '900px',
+                maxWidth: '1000px',
                 margin: '0 auto',
                 padding: theme.spacing(4)
             }}
