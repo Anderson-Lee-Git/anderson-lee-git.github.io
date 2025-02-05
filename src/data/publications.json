@@ -1,0 +1,11 @@
+{
+  "publications": [
+    {
+      "title": "Fairness through partial awareness: Evaluation of the addition of demographic information for bias mitigation methods",
+      "main_authors": ["Chung Peng Lee"],
+      "contributors": ["Rachel Hong", "Jamie Heather Morgenstern"],
+      "venue": "ICML 2024 Next Generation of AI Safety Workshop",
+      "url": "https://openreview.net/forum?id=e4GjJrfrlb"
+    }
+  ]
+}
