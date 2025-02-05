@@ -10,17 +10,6 @@ export interface ExperienceAbstract {
     imageUrl: string;
 }
 
-const experiences: ExperienceAbstract[] = [
-  {
-    imageUrl: '/path/to/image1.jpg',
-    title: 'Software Engineer',
-    organization: 'Company A',
-    period: 'Jan 2020 - Present',
-    description: 'Developing innovative software solutions...',
-  },
-  // ...other experiences
-];
-
 const ExperienceCard: React.FC<ExperienceAbstract> = ({
     title,
     organization,
@@ -88,21 +77,4 @@ const ExperienceCard: React.FC<ExperienceAbstract> = ({
     );
 };
 
-const Experience = () => {
-  return (
-    <div>
-      {experiences.map((exp, index) => (
-        <ExperienceCard
-          key={index}
-          title={exp.title}
-          organization={exp.organization}
-          period={exp.period}
-          description={exp.description}
-          imageUrl={exp.imageUrl}
-        />
-      ))}
-    </div>
-  );
-};
-
-export default Experience;
+export default ExperienceCard;

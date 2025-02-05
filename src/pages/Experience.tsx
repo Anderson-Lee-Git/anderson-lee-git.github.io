@@ -4,7 +4,7 @@ import { useTheme } from '../theme/ThemeProvider';
 import ExperienceCard, { ExperienceAbstract } from '../components/ExperienceCard';
 
 // Mock data - replace with actual data source
-const experiences: ExperienceAbstract[] = [
+const experiencesMock: ExperienceAbstract[] = [
     {
         title: 'Research Assistant',
         organization: 'Computer Science Lab',
@@ -38,7 +38,7 @@ const Experience: React.FC = () => {
                 Other Experience
             </Typography>
             <Box>
-                {experiences.map((experience, index) => (
+                {experiencesMock.map((experience, index) => (
                     <ExperienceCard key={index} {...experience} />
                 ))}
             </Box>

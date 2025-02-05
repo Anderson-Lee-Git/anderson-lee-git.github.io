@@ -48,8 +48,8 @@ const Navigation: React.FC = () => {
   const navItems: NavItem[] = [
     { path: '/about', label: 'About' },
     { path: '/publications', label: 'Publications' },
-    { path: '/blog', label: 'Blog' },
-    { path: '/experience', label: 'Experience' }
+    // { path: '/blog', label: 'Blog' },
+    // { path: '/experience', label: 'Experience' }
   ];
 
   return (
