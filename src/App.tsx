@@ -11,7 +11,7 @@ import './App.css';
 const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Navigation />
         <main style={{ marginTop: '60px' }}>
           <Routes>
