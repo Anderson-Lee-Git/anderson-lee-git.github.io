@@ -4,14 +4,6 @@ import { useTheme } from '../theme/ThemeProvider';
 import { PublicationCard } from '../components/PublicationCard';
 import publicationsData from '../data/publications.json';
 
-interface Publication {
-    title: string;
-    main_authors: string[];
-    contributors: string[];
-    venue: string;
-    url: string;
-}
-
 const Publications: React.FC = () => {
     const { theme } = useTheme();
 
@@ -24,8 +16,8 @@ const Publications: React.FC = () => {
                 padding: theme.spacing(4)
             }}
         >
-            <Typography 
-                sx={{ 
+            <Typography
+                sx={{
                     ...theme.typography.h3,
                     paddingLeft: theme.spacing(3),
                     paddingRight: theme.spacing(3),
