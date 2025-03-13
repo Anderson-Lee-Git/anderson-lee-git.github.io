@@ -36,23 +36,22 @@ const BlogCard: React.FC<BlogPostAbstract> = ({ title, date, description, slug }
             >
                 <Typography sx={{
                     ...theme.typography.h5,
-                    color: theme.primary,
-                    marginBottom: theme.spacing(1)
+                    color: theme.text,
                 }}>
                     {title}
                 </Typography>
                 <Typography sx={{
-                    ...theme.typography.body2,
+                    ...theme.typography.body1,
                     color: theme.secondary,
                     marginBottom: theme.spacing(1)
                 }}>
-                    {date}
+                    {description}
                 </Typography>
                 <Typography sx={{
-                    ...theme.typography.body1,
-                    color: theme.text
+                    ...theme.typography.body2,
+                    color: theme.text,
                 }}>
-                    {description}
+                    {date}
                 </Typography>
             </Paper>
         </Link>

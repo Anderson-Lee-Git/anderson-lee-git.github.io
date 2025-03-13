@@ -46,15 +46,6 @@ const About: React.FC = () => {
                     </Typography>
                     <Typography 
                         sx={{ 
-                            ...theme.typography.h2, 
-                            color: theme.secondary, 
-                            marginTop: theme.spacing(1) 
-                        }}
-                    >
-                        B.S. in Computer Science @ University of Washington
-                    </Typography>
-                    <Typography 
-                        sx={{ 
                             ...theme.typography.body1, 
                             color: theme.text 
                         }}

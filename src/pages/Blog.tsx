@@ -2,18 +2,16 @@ import React from 'react';
 import { Typography, Box } from '@mui/material';
 import { useTheme } from '../theme/ThemeProvider';
 import BlogCard, { BlogPostAbstract } from '../components/BlogCard';
+import blogData from '../data/blog_metadata.json';
 
-// Mock data - replace this with actual data fetching logic
-const mockBlogPosts: BlogPostAbstract[] = [
-    {
-        id: '1',
-        title: 'Getting Started with React and TypeScript',
-        date: '2023-06-15',
-        description: 'Learn how to set up a new project with React and TypeScript...',
-        slug: 'react-typescript-setup',
-    },
-    // Add more blog posts here
-];
+const blogPosts: BlogPostAbstract[] = blogData.blog_posts.map((post, index) => ({
+    id: index.toString(),
+    title: post.title,
+    date: post.date,
+    description: post.description,
+    slug: post.slug
+}));
+
 
 const Blog: React.FC = () => {
     const { theme } = useTheme();
@@ -37,7 +35,7 @@ const Blog: React.FC = () => {
                 Blog Posts
             </Typography>
             <Box>
-                {mockBlogPosts.map((post) => (
+                {blogPosts.map((post) => (
                     <BlogCard key={post.id} {...post} />
                 ))}
             </Box>

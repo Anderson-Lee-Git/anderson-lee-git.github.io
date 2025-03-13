@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { Global, css } from '@emotion/react';
 
 interface Typography {
     h1: {
@@ -35,7 +36,7 @@ interface Typography {
     };
 }
 
-interface Theme {
+export interface Theme {
     text: string;
     background: string;
     primary: string;
@@ -54,7 +55,7 @@ const lightTheme: Theme = {
     text: '#0a0f10',
     background: '#f2f6f7',
     primary: '#6c9aa3',
-    secondary: '#a7afc8',
+    secondary: '#6b7284',
     accent: '#858ab2',
     typography: {
         h1: {
@@ -74,8 +75,8 @@ const lightTheme: Theme = {
         },
         h5: {
             fontSize: '1.4rem',
-            fontWeight: 500,
-            marginBottom: '0.5rem'
+            fontWeight: 550,
+            marginBottom: '0.2rem',
         },
         body1: {
             fontSize: '1.1rem',
@@ -93,18 +94,14 @@ const lightTheme: Theme = {
     spacing: (multiplier: number) => `${0.5 * multiplier}rem`
 };
 
-const darkTheme: Theme = {
-    text: '#eff4f5',
-    background: '#080c0d',
-    primary: '#5c8a93',
-    secondary: '#373f58',
-    accent: '#4d527a',
+export const darkTheme: Theme = {
+    text: '#e1e5e6',
+    background: '#1a1a1a',
+    primary: '#7eb8c2',
+    secondary: '#8b93ad',
+    accent: '#6168a3',
     typography: {
-        ...lightTheme.typography,
-        nav: {
-            fontSize: '1.2rem',
-            fontWeight: 400
-        }
+        ...lightTheme.typography
     },
     spacing: lightTheme.spacing
 };
@@ -119,11 +116,21 @@ export const useTheme = () => useContext(ThemeContext);
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const [isDark, setIsDark] = useState(false);
     const theme = isDark ? darkTheme : lightTheme;
-
     const toggleTheme = () => setIsDark(!isDark);
 
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
+            <Global
+                styles={css`
+                    body {
+                        background-color: ${theme.background};
+                        color: ${theme.text};
+                        transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                        margin: 0;
+                        padding: 0;
+                    }
+                `}
+            />
             {children}
         </ThemeContext.Provider>
     );

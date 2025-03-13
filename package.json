@@ -9,6 +9,7 @@
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^6.4.3",
     "@orcid/bibtex-parse-js": "^0.0.25",
+    "@theme-toggles/react": "^4.1.0",
     "@types/node": "^16.18.126",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
