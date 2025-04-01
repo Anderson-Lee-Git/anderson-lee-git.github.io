@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './theme/ThemeProvider';
 import Navigation from './components/Navigation';
 import About from './pages/About';
@@ -11,18 +11,15 @@ import './App.css';
 const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <Navigation />
-        <main style={{ marginTop: '60px' }}>
-          <Routes>
-            <Route path="/" element={<Navigate to="/about" replace />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/blog" element={<Blog />} />
-            <Route path="/publications" element={<Publications />} />
-            <Route path="/experience" element={<Experience />} />
-            <Route path="*" element={<Navigate to="/about" replace />} />
-          </Routes>
-        </main>
+        <Routes>
+          <Route path="/" element={<About />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/publications" element={<Publications />} />
+          <Route path="/blog/*" element={<Blog />} />
+          <Route path="/experience" element={<Experience />} />
+        </Routes>
       </Router>
     </ThemeProvider>
   );

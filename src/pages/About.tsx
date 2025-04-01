@@ -35,22 +35,36 @@ const About: React.FC = () => {
                     />
                 </Box>
                 <Box sx={{ flex: '0 0 65%' }}>
-                    <Typography 
-                        sx={{ 
-                            ...theme.typography.h1, 
-                            color: theme.text, 
-                            margin: 0 
+                    <Typography
+                        sx={{
+                            ...theme.typography.h1,
+                            color: theme.text,
                         }}
                     >
                         Anderson Lee
                     </Typography>
-                    <Typography 
-                        sx={{ 
-                            ...theme.typography.body1, 
-                            color: theme.text 
+                    <Typography
+                        sx={{
+                            ...theme.typography.body1,
+                            color: theme.text
                         }}
                     >
-                        Hi there! I recently got my bachelor degree in Computer Science at University of Washington in 2024. My research interest is around fairness in machine learning, interpretability, adaptation in online setting and efficient machine learning. My most recent work is on evaluating bias mitigation methods in the robustness and fairness space under incomplete and full demographic information. I'm actively applying to PhD program for Fall 2025.
+                        I'm an incoming PhD student at Princeton University advised by Professor <a href="https://www.korolova.com/" target="_blank" rel="noopener noreferrer">Aleksandra Korolova</a>. My research interest is in making ML systems more reliable and trustworthy, including
+                        <ul>
+                            <li>
+                                <b>Privacy</b>: In the application of generative models, what's the notion of privacy around training data, in-context learning, generated content, and other components in the lifecycle?
+                            </li>
+                            <li>
+                                <b>Evaluation</b>: With the diverse capabilities of foundation models, what evaluation metrics are appropriate for assessing models' set of skills and their robustness toward different tasks?
+                            </li>
+                            <li>
+                                <b>Trustworthiness</b>: What metrics are convincing to make users willing to <i>trust</i> ML systems with their tasks?
+                            </li>
+                        </ul>
+                        Prior to Princeton, I got my undergraduate degree in Computer Science at University of Washington, advised by Professor Jamie Morgenstern and Rachel Hong. I was very fortunate to work with them on <i>evaluating bias mitigation methods with incomplete demographic information setup</i>. I also had an amazing opportunity to work with Emmanuel Mensah on <i>low-resource audio-visual transformers for wildlife monitoring</i>.
+                        <br></br>
+                        <br></br>
+                        Outside of school and work, I enjoy playing badminton and guitar. I'm also learning how to snowboard.
                     </Typography>
                 </Box>
             </Box>

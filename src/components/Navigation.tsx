@@ -4,14 +4,16 @@ import { useTheme, Theme } from '../theme/ThemeProvider';
 import { darkTheme } from '../theme/ThemeProvider';
 import styled from '@emotion/styled';
 import "@theme-toggles/react/css/Classic.css";
-import { Classic } from "@theme-toggles/react";
 
 const Nav = styled.nav<{ theme: Theme }>`
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
-    padding: ${props => props.theme.spacing(2)};
+    padding: ${props => props.theme.spacing(3)} 0;
     z-index: 1000;
+    height: 30px;
+    background-color: ${props => props.theme.background};
 `;
 
 const NavContainer = styled.div<{ theme: Theme }>`
@@ -20,17 +22,16 @@ const NavContainer = styled.div<{ theme: Theme }>`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: ${props => `0 ${props.theme.spacing(3)}`};
+    padding: 0;
 `;
 
 const NavLinks = styled.div<{ theme: Theme }>`
     display: flex;
-    gap: ${props => props.theme.spacing(4)};
+    gap: ${props => props.theme.spacing(2)};
     align-items: center;
 `;
 
 const ThemeToggleWrapper = styled.div<{ theme: Theme }>`
-    margin-left: ${props => props.theme.spacing(1)};
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -65,6 +66,11 @@ const NavLink = styled(Link) <{ isActive: boolean; theme: Theme }>`
     }
 `;
 
+const NavSpacer = styled.div<{ theme: Theme }>`
+    height: 60px;
+    width: 100%;
+`;
+
 interface NavItem {
     path: string;
     label: string;
@@ -76,37 +82,32 @@ const Navigation: React.FC = () => {
     const isDarkTheme = theme === darkTheme;
 
     const navItems: NavItem[] = [
-        { path: '/about', label: 'About' },
-        { path: '/publications', label: 'Publications' },
-        { path: '/blog', label: 'Blog' },
+        { path: '/about', label: 'about' },
+        { path: '/publications', label: 'publications' },
+        { path: '/blog', label: 'blog' },
         // { path: '/experience', label: 'Experience' }
     ];
 
     return (
-        <Nav theme={theme}>
-            <NavContainer theme={theme}>
-                <NavLinks theme={theme}>
-                    {navItems.map((item) => (
-                        <NavLink
-                            key={item.path}
-                            to={item.path}
-                            isActive={location.pathname === item.path}
-                            theme={theme}
-                        >
-                            {item.label}
-                        </NavLink>
-                    ))}
-                    <ThemeToggleWrapper theme={theme}>
-                        <Classic
-                            duration={750}
-                            toggled={isDarkTheme}
-                            onToggle={toggleTheme}
-                            {...{} as any}
-                        />
-                    </ThemeToggleWrapper>
-                </NavLinks>
-            </NavContainer>
-        </Nav>
+        <>
+            <Nav theme={theme}>
+                <NavContainer theme={theme}>
+                    <NavLinks theme={theme}>
+                        {navItems.map((item) => (
+                            <NavLink
+                                key={item.path}
+                                to={item.path}
+                                isActive={location.pathname === item.path}
+                                theme={theme}
+                            >
+                                {item.label}
+                            </NavLink>
+                        ))}
+                    </NavLinks>
+                </NavContainer>
+            </Nav>
+            <NavSpacer theme={theme} />
+        </>
     );
 };
 

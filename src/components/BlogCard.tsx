@@ -1,6 +1,6 @@
 import React from 'react';
+import { Card, CardContent, Typography, CardActionArea } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { Paper, Typography } from '@mui/material';
 import { useTheme } from '../theme/ThemeProvider';
 
 export interface BlogPostAbstract {
@@ -15,46 +15,55 @@ const BlogCard: React.FC<BlogPostAbstract> = ({ title, date, description, slug }
     const { theme } = useTheme();
 
     return (
-        <Link
-            to={`/blog/${slug}`}
-            style={{ textDecoration: 'none' }}
+        <Card
+            sx={{
+                margin: theme.spacing(2),
+                backgroundColor: theme.background,
+                borderColor: theme.primary,
+                borderWidth: '1px',
+                borderStyle: 'solid',
+                borderRadius: theme.spacing(1),
+                transition: 'transform 0.2s ease-in-out',
+                '&:hover': {
+                    transform: 'scale(1.01)'
+                }
+            }}
         >
-            <Paper
-                elevation={0}
-                sx={{
-                    padding: theme.spacing(3),
-                    margin: theme.spacing(2),
-                    border: `1px solid ${theme.secondary}`,
-                    background: 'transparent',
-                    transition: 'all 0.2s ease-in-out',
-                    '&:hover': {
-                        borderColor: theme.primary,
-                        transition: 'all 0.2s ease-in-out',
-                    },
-                    borderRadius: theme.spacing(2),
-                }}
-            >
-                <Typography sx={{
-                    ...theme.typography.h5,
-                    color: theme.text,
-                }}>
-                    {title}
-                </Typography>
-                <Typography sx={{
-                    ...theme.typography.body1,
-                    color: theme.secondary,
-                    marginBottom: theme.spacing(1)
-                }}>
-                    {description}
-                </Typography>
-                <Typography sx={{
-                    ...theme.typography.body2,
-                    color: theme.text,
-                }}>
-                    {date}
-                </Typography>
-            </Paper>
-        </Link>
+            <CardActionArea component={Link} to={`/blog/${slug}`}>
+                <CardContent>
+                    <Typography
+                        component="div"
+                        sx={{
+                            ...theme.typography.h5,
+                            color: theme.primary,
+                            marginBottom: theme.spacing(1),
+                            transition: 'none'
+                        }}
+                    >
+                        {title}
+                    </Typography>
+                    <Typography
+                        color={theme.secondary}
+                        sx={{
+                            ...theme.typography.body1,
+                            marginBottom: theme.spacing(2),
+                            transition: 'none'
+                        }}
+                    >
+                        {date}
+                    </Typography>
+                    <Typography
+                        color={theme.text}
+                        sx={{
+                            ...theme.typography.body2,
+                            transition: 'none'
+                        }}
+                    >
+                        {description}
+                    </Typography>
+                </CardContent>
+            </CardActionArea>
+        </Card>
     );
 };
 

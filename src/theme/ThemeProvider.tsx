@@ -17,6 +17,11 @@ interface Typography {
         fontWeight: number;
         marginBottom: string;
     };
+    h4: {
+        fontSize: string;
+        fontWeight: number;
+        marginBottom: string;
+    };
     h5: {
         fontSize: string;
         fontWeight: number;
@@ -73,6 +78,11 @@ const lightTheme: Theme = {
             fontWeight: 550,
             marginBottom: '1rem'
         },
+        h4: {
+            fontSize: '1.8rem',
+            fontWeight: 600,
+            marginBottom: '1rem'
+        },
         h5: {
             fontSize: '1.4rem',
             fontWeight: 550,
@@ -83,7 +93,7 @@ const lightTheme: Theme = {
             lineHeight: 1.6
         },
         body2: {
-            fontSize: '0.9rem',
+            fontSize: '0.95rem',
             lineHeight: 1.4
         },
         nav: {
@@ -128,6 +138,18 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
                         transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
                         margin: 0;
                         padding: 0;
+                    }
+                    
+                    /* Style links but exclude navigation links */
+                    a:not(nav a) {
+                        color: ${theme.primary};
+                        text-decoration: none;
+                        transition: color 0.2s ease;
+                    }
+                    
+                    a:not(nav a):hover {
+                        color: ${theme.accent};
+                        text-decoration: underline;
                     }
                 `}
             />
