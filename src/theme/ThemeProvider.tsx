@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, ReactNode } from 'react';
 import { Global, css } from '@emotion/react';
 
 interface Typography {
@@ -53,47 +53,48 @@ export interface Theme {
 
 interface ThemeContextType {
     theme: Theme;
-    toggleTheme: () => void;
 }
 
-const lightTheme: Theme = {
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+
+const theme: Theme = {
     text: '#0a0f10',
     background: '#f2f6f7',
-    primary: '#6c9aa3',
-    secondary: '#6b7284',
-    accent: '#858ab2',
+    primary: '#2a6b7b',
+    secondary: '#5d6970',
+    accent: '#3a4a8c',
     typography: {
         h1: {
             fontSize: '2.5rem',
-            fontWeight: 650,
+            fontWeight: 700,
             marginBottom: '1rem'
         },
         h2: {
-            fontSize: '1.2rem',
-            fontWeight: 500,
-            marginBottom: '1rem'
+            fontSize: '2rem',
+            fontWeight: 600,
+            marginBottom: '0.8rem'
         },
         h3: {
-            fontSize: '2.0rem',
-            fontWeight: 550,
-            marginBottom: '1rem'
+            fontSize: '1.75rem',
+            fontWeight: 600,
+            marginBottom: '0.7rem'
         },
         h4: {
-            fontSize: '1.8rem',
-            fontWeight: 600,
-            marginBottom: '1rem'
+            fontSize: '1.5rem',
+            fontWeight: 500,
+            marginBottom: '0.5rem'
         },
         h5: {
-            fontSize: '1.4rem',
-            fontWeight: 550,
-            marginBottom: '0.2rem',
+            fontSize: '1.25rem',
+            fontWeight: 500,
+            marginBottom: '0.5rem'
         },
         body1: {
-            fontSize: '1.1rem',
-            lineHeight: 1.6
+            fontSize: '1rem',
+            lineHeight: 1.5
         },
         body2: {
-            fontSize: '0.95rem',
+            fontSize: '0.875rem',
             lineHeight: 1.4
         },
         nav: {
@@ -104,32 +105,9 @@ const lightTheme: Theme = {
     spacing: (multiplier: number) => `${0.5 * multiplier}rem`
 };
 
-export const darkTheme: Theme = {
-    text: '#e1e5e6',
-    background: '#1a1a1a',
-    primary: '#7eb8c2',
-    secondary: '#8b93ad',
-    accent: '#6168a3',
-    typography: {
-        ...lightTheme.typography
-    },
-    spacing: lightTheme.spacing
-};
-
-const ThemeContext = createContext<ThemeContextType>({
-    theme: lightTheme,
-    toggleTheme: () => { },
-});
-
-export const useTheme = () => useContext(ThemeContext);
-
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-    const [isDark, setIsDark] = useState(false);
-    const theme = isDark ? darkTheme : lightTheme;
-    const toggleTheme = () => setIsDark(!isDark);
-
     return (
-        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <ThemeContext.Provider value={{ theme }}>
             <Global
                 styles={css`
                     body {
@@ -156,4 +134,12 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
             {children}
         </ThemeContext.Provider>
     );
+};
+
+export const useTheme = () => {
+    const context = useContext(ThemeContext);
+    if (context === undefined) {
+        throw new Error('useTheme must be used within a ThemeProvider');
+    }
+    return context;
 };

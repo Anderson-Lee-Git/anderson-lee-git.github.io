@@ -9,11 +9,13 @@ import styled from '@emotion/styled';
 import { BlogPostAbstract } from './BlogCard';
 import { ErrorBoundary } from 'react-error-boundary';
 
+
+
 const BlogContent = styled.div<{ theme: Theme }>`
     line-height: 1.6;
     
     h1, h2, h3, h4, h5, h6 {
-        margin-top: 1.5em;
+        margin-top: 1.0em;
         margin-bottom: 0.5em;
         color: ${props => props.theme.text};
     }
@@ -26,8 +28,12 @@ const BlogContent = styled.div<{ theme: Theme }>`
     code {
         background-color: ${props => props.theme.secondary}20;
         padding: 0.2em 0.4em;
-        border-radius: 3px;
+        border-radius: ${props => props.theme.spacing(2)};
         font-family: monospace;
+    }
+
+    img {
+        max-width: 1000px;
     }
     
     pre {
@@ -86,6 +92,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ blogPosts }) => {
 
     return (
         <Box
+            component="main"
             sx={{
                 maxWidth: '1000px',
                 margin: '0 auto',

@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme, Theme } from '../theme/ThemeProvider';
-import { darkTheme } from '../theme/ThemeProvider';
 import styled from '@emotion/styled';
-import "@theme-toggles/react/css/Classic.css";
 
 const Nav = styled.nav<{ theme: Theme }>`
     position: fixed;
@@ -29,25 +27,6 @@ const NavLinks = styled.div<{ theme: Theme }>`
     display: flex;
     gap: ${props => props.theme.spacing(2)};
     align-items: center;
-`;
-
-const ThemeToggleWrapper = styled.div<{ theme: Theme }>`
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-size: 2rem;
-
-    /* Style the toggle */
-    .theme-toggle {
-        transform: scale(1.5);
-        color: ${props => props.theme.text};
-    }
-
-    /* Adjust the color of both states */
-    .theme-toggle--clicked,
-    .theme-toggle--unclicked {
-        color: ${props => props.theme.text};
-    }
 `;
 
 const NavLink = styled(Link) <{ isActive: boolean; theme: Theme }>`
@@ -77,9 +56,8 @@ interface NavItem {
 }
 
 const Navigation: React.FC = () => {
-    const { theme, toggleTheme } = useTheme();
+    const { theme } = useTheme();
     const location = useLocation();
-    const isDarkTheme = theme === darkTheme;
 
     const navItems: NavItem[] = [
         { path: '/about', label: 'about' },
