@@ -120,23 +120,27 @@ const BlogPost: React.FC<BlogPostProps> = ({ blogPosts }) => {
                 >
                     <ReactMarkdown
                         components={{
-                            code({ className, children, ...rest }) {
+                            code({ node, className, children, ...props }) {
                                 const match = /language-(\w+)/.exec(className || "");
+
+                                // Remove the ref prop to avoid type conflicts
+                                const { ref, ...restProps } = props;
+
                                 return match ? (
                                     <SyntaxHighlighter
-                                        PreTag="div"
-                                        language={match[1]}
                                         style={oneDark as any}
-                                        {...rest}
+                                        language={match[1]}
+                                        PreTag="div"
+                                        {...restProps}
                                     >
                                         {String(children).replace(/\n$/, '')}
                                     </SyntaxHighlighter>
                                 ) : (
-                                    <code {...rest} className={className}>
+                                    <code className={className} {...props}>
                                         {children}
                                     </code>
                                 );
-                            },
+                            }
                         }}
                     >
                         {markdownContent}
