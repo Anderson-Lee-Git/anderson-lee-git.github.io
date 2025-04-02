@@ -13,14 +13,15 @@ Inheritance is a fundamental concept in object-oriented programming (OOP) that a
 1. What is Inheritance?
 2. Benefits of Inheritance
 3. Inheritance in Java
-4. `instanceof` Operator
-5. Upcasting and Downcasting
-6. Access **inherited** fields
-7. **Overriding** Methods
+4. **is-a** Relationship
+5. `instanceof` Operator
+6. Upcasting and Downcasting
+7. Access **inherited** fields
+8. **Overriding** Methods
     * Overriding vs. Overloading
-8. The `super` Keyword
-9. The `Object` Class
-10. **Polymorphism**
+9. The `super` Keyword
+10. The `Object` Class
+11. **Polymorphism**
 
 ## What is Inheritance?
 Inheritance is a mechanism that allows one class to inherit the fields and methods of another class. The class that inherits is called the subclass, and the class being inherited from is called the superclass. This allows the subclass to reuse code from the superclass and add its own unique features.
@@ -112,6 +113,50 @@ Dog myDog = (Dog) myAnimal; // downcasting
 myDog.bark(); // This will throw a ClassCastException in runtime
 ~~~
 
+## **is-a** Relationship
+When do we need this **is-a** relationship? There are three places you need to consider when it comes to the **is-a** relationship:
+
+1. Declaration/Instantiation: the initiated object **is-a** `declared` type
+2. Return type: the method returns an object that **is-a** `declared return` type
+3. Argument/parameter type: the method argument **is-a** `declared parameter` type
+
+### Declaration/Instantiation Example
+~~~java
+// declaration/instantiation: the `declared` type is `Animal`, the initiated object is `Dog` type
+Animal myAnimal = new Dog();
+// invalid example for declaration:
+// the `declared` type is `Dog`, the initiated object is `Animal` type; `Animal` is not a `Dog`
+Dog myDog = new Animal();
+~~~
+
+### Return Type Example
+~~~java
+// return type: the method returns an object that **is-a** `declared return` type
+public static Animal getAnimal() {
+    return new Dog();
+}
+// invalid example for return type: 
+// the `declared return` type is `Dog`, but the returned object is `Animal` type; `Animal` is not a `Dog`
+public static Dog getDog() {
+    return new Animal();
+}
+~~~ 
+
+### Argument/parameter Type Example
+~~~java
+// argument/parameter type: the method argument **is-a** `declared parameter` type
+public static void printAnimal(Animal animal) {
+    System.out.println(animal.name);
+}
+printAnimal(new Dog()); // valid
+// invalid example for argument/parameter type:
+// the `declared parameter` type is `Dog`, but the argument is `Animal` type; `Animal` is not a `Dog`
+public static void printDog(Dog dog) {
+    System.out.println(dog.name);
+}
+printDog(new Animal()); // invalid because `Animal` is not a `Dog`
+~~~
+
 ## `instanceof` Operator
 The `instanceof` operator can be used to check if an object is an instance of a specific class or its subclasses.
 
@@ -120,15 +165,22 @@ The `instanceof` operator can be used to check if an object is an instance of a 
 Animal myAnimal = new Dog();
 if (myAnimal instanceof Dog) {
     System.out.println("myAnimal is an instance of Dog");
+} else {
+    System.out.println("myAnimal is not an instance of Dog");
 }
-
 // output: myAnimal is an instance of Dog
-
 if (myAnimal instanceof Animal) {
     System.out.println("myAnimal is an instance of Animal");
 }
-
 // output: myAnimal is an instance of Animal
+
+Animal myAnimal2 = new Animal();
+if (myAnimal2 instanceof Dog) {
+    System.out.println("myAnimal2 is an instance of Dog");
+} else {
+    System.out.println("myAnimal2 is not an instance of Dog");
+}
+// output: myAnimal2 is not an instance of Dog
 ~~~
 
 
