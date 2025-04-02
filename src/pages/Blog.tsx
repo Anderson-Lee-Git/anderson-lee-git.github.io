@@ -11,7 +11,8 @@ const blogPosts: BlogPostAbstract[] = blogData.blog_posts.map((post, index) => (
     title: post.title,
     date: post.date,
     description: post.description,
-    slug: post.slug
+    slug: post.slug,
+    tags: post.tags
 }));
 
 // Component for the blog list page
@@ -28,6 +29,7 @@ const BlogList: React.FC = () => {
             }}
         >
             <Typography
+                component="div"
                 sx={{
                     ...theme.typography.h3,
                     paddingLeft: theme.spacing(3),
@@ -37,9 +39,20 @@ const BlogList: React.FC = () => {
             >
                 Blog
             </Typography>
+            <Typography
+                component="div"
+                sx={{
+                    ...theme.typography.body1,
+                    paddingLeft: theme.spacing(3),
+                    paddingRight: theme.spacing(3),
+                    color: theme.text,
+                }}
+            >
+                A collection of my thoughts toward concepts. No guarantee to pass AI-generated content check :) Feel free to contact me if there is any mistake made in the blog posts.
+            </Typography>
             <Box
                 sx={{
-                    padding: 0
+                    padding: theme.spacing(1)
                 }}
             >
                 {blogPosts.map((post) => (

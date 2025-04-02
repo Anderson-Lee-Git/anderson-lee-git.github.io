@@ -98,7 +98,7 @@ const theme: Theme = {
             lineHeight: 1.4
         },
         nav: {
-            fontSize: '1.2rem',
+            fontSize: '1.0rem',
             fontWeight: 400
         }
     },

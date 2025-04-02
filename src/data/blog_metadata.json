@@ -4,25 +4,29 @@
             "title": "[WIP] Inheritance",
             "date": "2025-04-01",
             "description": "An overview of inheritance with examples in Java",
-            "slug": "inheritance"
+            "slug": "inheritance",
+            "tags": ["concept", "oop"]
         },
         {
             "title": "Test",
             "date": "2025-04-01",
             "description": "An overview of testing",
-            "slug": "test"
+            "slug": "test",
+            "tags": ["concept"]
         },
         {
             "title": "Exception",
             "date": "2025-03-17",
             "description": "An overview of exceptions with examples in Java",
-            "slug": "exception"
+            "slug": "exception",
+            "tags": ["concept"]
         },
         {
             "title": "Getter & Setter Pattern",
             "date": "2025-03-11",
             "description": "An overview of the getter and setter pattern in object-oriented programming",
-            "slug": "getter_setter"
+            "slug": "getter_setter",
+            "tags": ["concept", "oop"]
         }
     ]
 }
