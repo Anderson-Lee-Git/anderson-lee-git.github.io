@@ -21,7 +21,8 @@ Inheritance is a fundamental concept in object-oriented programming (OOP) that a
     * Overriding vs. Overloading
 9. The `super` Keyword
 10. The `Object` Class
-11. **Polymorphism**
+11. Polymorphism
+12. Resources
 
 ## What is Inheritance?
 Inheritance is a mechanism that allows one class to inherit the fields and methods of another class. The class that inherits is called the subclass, and the class being inherited from is called the superclass. This allows the subclass to reuse code from the superclass and add its own unique features.
