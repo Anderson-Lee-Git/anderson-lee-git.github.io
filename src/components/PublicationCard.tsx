@@ -7,7 +7,8 @@ interface PublicationCardProps {
     mainAuthors: string[];
     contributors: string[];
     venue: string;
-    url: string;
+    paper_url: string;
+    code_url: string;
 }
 
 const PublicationCard: React.FC<PublicationCardProps> = ({
@@ -15,7 +16,8 @@ const PublicationCard: React.FC<PublicationCardProps> = ({
     mainAuthors,
     contributors,
     venue,
-    url
+    paper_url,
+    code_url
 }) => {
     const { theme } = useTheme();
 
@@ -37,7 +39,7 @@ const PublicationCard: React.FC<PublicationCardProps> = ({
                         </React.Fragment> :
                         <React.Fragment key={index}>
                             {author}
-                            {mainAuthors.includes(author) && " *"}
+                            {mainAuthors.includes(author) && "*"}
                             {index < allAuthors.length - 1 && ", "}
                         </React.Fragment>
                 ))}
@@ -69,10 +71,10 @@ const PublicationCard: React.FC<PublicationCardProps> = ({
             }}>
                 {venue}
             </Typography>
-            {url && (
-                <Typography sx={{ ...theme.typography.body1 }}>
+            {paper_url && (
+                <Typography sx={{ ...theme.typography.body1, display: 'inline', marginRight: '10px' }}>
                     <a
-                        href={url}
+                        href={paper_url}
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
@@ -81,6 +83,21 @@ const PublicationCard: React.FC<PublicationCardProps> = ({
                         }}
                     >
                         Paper
+                    </a>
+                </Typography>
+            )}
+            {code_url && (
+                <Typography sx={{ ...theme.typography.body1, display: 'inline' }}>
+                    <a
+                        href={code_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                            color: theme.primary,
+                            textDecoration: 'none'
+                        }}
+                    >
+                        Code
                     </a>
                 </Typography>
             )}

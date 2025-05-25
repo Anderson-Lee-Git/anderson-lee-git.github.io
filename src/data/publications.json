@@ -1,11 +1,35 @@
 {
-  "publications": [
-    {
-      "title": "Fairness through partial awareness: Evaluation of the addition of demographic information for bias mitigation methods",
-      "main_authors": ["Chung Peng Lee"],
-      "contributors": ["Rachel Hong", "Jamie Morgenstern"],
-      "venue": "ICML 2024 Next Generation of AI Safety Workshop",
-      "url": "https://openreview.net/forum?id=e4GjJrfrlb"
-    }
-  ]
+    "publications": [
+        {
+            "title": "Escaping the SpuriVerse: Can Large Vision-Language Models Generalize Beyond Seen Spurious Correlations?",
+            "main_authors": [
+                "Yiwei Yang",
+                "Chung Peng Lee"
+            ],
+            "contributors": [
+                "Shangbin Feng",
+                "Dora Zhao",
+                "Bingbing Wen",
+                "Anthony Liu",
+                " Yulia Tsvetkov",
+                "Bill Howe"
+            ],
+            "venue": "In Submission",
+            "paper_url": "",
+            "code_url": "https://github.com/Anderson-Lee-Git/SpuriVerse"
+        },
+        {
+            "title": "Fairness through partial awareness: Evaluation of the addition of demographic information for bias mitigation methods",
+            "main_authors": [
+                "Chung Peng Lee"
+            ],
+            "contributors": [
+                "Rachel Hong",
+                "Jamie Morgenstern"
+            ],
+            "venue": "ICML 2024 Next Generation of AI Safety Workshop",
+            "paper_url": "https://openreview.net/forum?id=e4GjJrfrlb",
+            "code_url": ""
+        }
+    ]
 }

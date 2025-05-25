@@ -34,7 +34,8 @@ const Publications: React.FC = () => {
                         mainAuthors={pub.main_authors}
                         contributors={pub.contributors}
                         venue={pub.venue}
-                        url={pub.url}
+                        paper_url={pub.paper_url}
+                        code_url={pub.code_url}
                     />
                 ))}
             </Box>

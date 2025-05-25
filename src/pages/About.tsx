@@ -61,7 +61,7 @@ const About: React.FC = () => {
                                 <b>Trustworthiness</b>: What metrics are convincing to make users willing to <i>trust</i> ML systems with their tasks?
                             </li>
                         </ul>
-                        Prior to Princeton, I got my undergraduate degree in Computer Science at University of Washington, advised by Professor Jamie Morgenstern and Rachel Hong. I was very fortunate to work with them on <i>evaluating bias mitigation methods with incomplete demographic information setup</i>. I also had an amazing opportunity to work with Emmanuel Mensah on <i>low-resource audio-visual transformers for wildlife monitoring</i>.
+                        Prior to Princeton, I got my undergraduate degree in Computer Science at University of Washington, advised by Professor <a href="https://jamiemorgenstern.com/#" target="_blank" rel="noopener noreferrer">Jamie Morgenstern</a> and <a href="https://rachelhong.me/" target="_blank" rel="noopener noreferrer">Rachel Hong</a>. I was very fortunate to work with them on <i>evaluating bias mitigation methods with incomplete demographic information setup</i>. I also had an amazing opportunity to work with <a href="https://emazuh.github.io/" target="_blank" rel="noopener noreferrer">Emmanuel Mensah</a> on <i>low-resource audio-visual transformers for wildlife monitoring</i>.
                         <br></br>
                         <br></br>
                         Outside of school and work, I enjoy playing badminton and guitar. I'm also learning how to snowboard.
