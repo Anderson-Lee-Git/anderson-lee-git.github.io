@@ -52,7 +52,13 @@ const BlogList: React.FC = () => {
             </Typography>
             <Box
                 sx={{
-                    padding: theme.spacing(1)
+                    padding: theme.spacing(1),
+                    display: 'grid',
+                    gridTemplateColumns: {
+                        xs: '1fr',
+                        md: 'repeat(2, 1fr)'
+                    },
+                    gap: theme.spacing(2)
                 }}
             >
                 {blogPosts.map((post) => (

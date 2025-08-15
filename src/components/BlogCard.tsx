@@ -18,7 +18,7 @@ const BlogCard: React.FC<BlogPostAbstract> = ({ title, date, description, slug, 
     return (
         <Card
             sx={{
-                margin: theme.spacing(2),
+                height: '100%',
                 backgroundColor: theme.background,
                 borderColor: theme.primary,
                 borderWidth: '1px',

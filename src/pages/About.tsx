@@ -49,16 +49,13 @@ const About: React.FC = () => {
                             color: theme.text
                         }}
                     >
-                        I'm an incoming PhD student at Princeton University advised by Professor <a href="https://www.korolova.com/" target="_blank" rel="noopener noreferrer">Aleksandra Korolova</a>. My research interest is in making ML systems more reliable and trustworthy, including
+                        I'm a first-year PhD student at Princeton University advised by Professor <a href="https://www.korolova.com/" target="_blank" rel="noopener noreferrer">Aleksandra Korolova</a>. My research interest includes:
                         <ul>
                             <li>
-                                <b>Privacy</b>: In the application of generative models, what's the notion of privacy around training data, in-context learning, generated content, and other components in the lifecycle?
+                                <b>Data-centric ML</b>: How do we construct, filter, and use high-quality and diverse data for training ML models efficiently under a fixed-algorithm paradigm?
                             </li>
                             <li>
-                                <b>Evaluation</b>: With the diverse capabilities of foundation models, what evaluation metrics are appropriate for assessing models' set of skills and their robustness toward different tasks?
-                            </li>
-                            <li>
-                                <b>Trustworthiness</b>: What metrics are convincing to make users willing to <i>trust</i> ML systems with their tasks?
+                                <b>Reliability</b>: How can we make ML systems robust to adversarial or distribution shifts? How do models generalize to unseen domains and data given a massive amount of training data?
                             </li>
                         </ul>
                         Prior to Princeton, I got my undergraduate degree in Computer Science at University of Washington, advised by Professor <a href="https://jamiemorgenstern.com/#" target="_blank" rel="noopener noreferrer">Jamie Morgenstern</a> and <a href="https://rachelhong.me/" target="_blank" rel="noopener noreferrer">Rachel Hong</a>. I was very fortunate to work with them on <i>evaluating bias mitigation methods with incomplete demographic information setup</i>. I also had an amazing opportunity to work with <a href="https://emazuh.github.io/" target="_blank" rel="noopener noreferrer">Emmanuel Mensah</a> on <i>low-resource audio-visual transformers for wildlife monitoring</i>.
