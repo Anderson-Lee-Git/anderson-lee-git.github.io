@@ -1,6 +1,22 @@
 {
     "publications": [
         {
+            "title": "How do data owners say no? A case study of data consent mechanisms in web-scraped vision-language AI training datasets",
+            "main_authors": [
+                "Chung Peng Lee"
+            ],
+            "contributors": [
+                "Rachel Hong",
+                "Harry Jiang",
+                "Aster Plotnik",
+                "William Agnew",
+                "Jamie Morgenstern"
+            ],
+            "venue": "NeurIPS RegML Workshop 2025",
+            "paper_url": "",
+            "code_url": "https://github.com/Anderson-Lee-Git/tracing-data-consent-in-datacomp/tree/main"
+        },
+        {
             "title": "Escaping the SpuriVerse: Can Large Vision-Language Models Generalize Beyond Seen Spurious Correlations?",
             "main_authors": [
                 "Yiwei Yang",
@@ -11,10 +27,10 @@
                 "Dora Zhao",
                 "Bingbing Wen",
                 "Anthony Liu",
-                " Yulia Tsvetkov",
+                "Yulia Tsvetkov",
                 "Bill Howe"
             ],
-            "venue": "In Submission",
+            "venue": "NeurIPS Datasets and Benchmarks 2025",
             "paper_url": "https://arxiv.org/abs/2506.18322",
             "code_url": "https://github.com/Anderson-Lee-Git/SpuriVerse"
         },
@@ -27,7 +43,7 @@
                 "Rachel Hong",
                 "Jamie Morgenstern"
             ],
-            "venue": "ICML 2024 Next Generation of AI Safety Workshop",
+            "venue": "ICML Next Generation of AI Safety Workshop 2024",
             "paper_url": "https://openreview.net/forum?id=e4GjJrfrlb",
             "code_url": ""
         }
