@@ -7,13 +7,13 @@
             ],
             "contributors": [
                 "Rachel Hong",
-                "Harry Jiang",
+                "Harry H. Jiang",
                 "Aster Plotnik",
                 "William Agnew",
                 "Jamie Morgenstern"
             ],
-            "venue": "NeurIPS RegML Workshop 2025",
-            "paper_url": "",
+            "venue": "Oral in AAAI (AI for Societal Impact Track) 2026, Oral in NeurIPS RegML Workshop 2025",
+            "paper_url": "https://arxiv.org/abs/2511.08637",
             "code_url": "https://github.com/Anderson-Lee-Git/tracing-data-consent-in-datacomp/tree/main"
         },
         {

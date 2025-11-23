@@ -24,7 +24,10 @@ const Experience: React.FC = () => {
             sx={{
                 maxWidth: '1000px',
                 margin: '0 auto',
-                padding: theme.spacing(4)
+                padding: theme.spacing(4),
+                [`@media (max-width: ${theme.breakpoints.mobile})`]: {
+                    padding: theme.spacing(2)
+                }
             }}
         >
             <Typography
@@ -33,6 +36,11 @@ const Experience: React.FC = () => {
                     paddingLeft: theme.spacing(3),
                     paddingRight: theme.spacing(3),
                     color: theme.text,
+                    [`@media (max-width: ${theme.breakpoints.mobile})`]: {
+                        paddingLeft: theme.spacing(1),
+                        paddingRight: theme.spacing(1),
+                        fontSize: '1.5rem'
+                    }
                 }}
             >
                 Other Stuffs

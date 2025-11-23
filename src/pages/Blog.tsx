@@ -25,7 +25,10 @@ const BlogList: React.FC = () => {
             sx={{
                 maxWidth: '1000px',
                 margin: '0 auto',
-                padding: theme.spacing(4)
+                padding: theme.spacing(4),
+                [`@media (max-width: ${theme.breakpoints.mobile})`]: {
+                    padding: theme.spacing(2)
+                }
             }}
         >
             <Typography
@@ -35,6 +38,11 @@ const BlogList: React.FC = () => {
                     paddingLeft: theme.spacing(3),
                     paddingRight: theme.spacing(3),
                     color: theme.text,
+                    [`@media (max-width: ${theme.breakpoints.mobile})`]: {
+                        paddingLeft: theme.spacing(1),
+                        paddingRight: theme.spacing(1),
+                        fontSize: '1.5rem'
+                    }
                 }}
             >
                 Blog
@@ -46,6 +54,13 @@ const BlogList: React.FC = () => {
                     paddingLeft: theme.spacing(3),
                     paddingRight: theme.spacing(3),
                     color: theme.text,
+                    marginTop: theme.spacing(1),
+                    marginBottom: theme.spacing(3),
+                    [`@media (max-width: ${theme.breakpoints.mobile})`]: {
+                        paddingLeft: theme.spacing(1),
+                        paddingRight: theme.spacing(1),
+                        fontSize: '0.9rem'
+                    }
                 }}
             >
                 A collection of my thoughts toward concepts. No guarantee to pass AI-generated content check :) Feel free to contact me if there is any mistake made in the blog posts.
@@ -54,11 +69,12 @@ const BlogList: React.FC = () => {
                 sx={{
                     padding: theme.spacing(1),
                     display: 'grid',
-                    gridTemplateColumns: {
-                        xs: '1fr',
-                        md: 'repeat(2, 1fr)'
-                    },
-                    gap: theme.spacing(2)
+                    gridTemplateColumns: 'repeat(2, 1fr)',
+                    gap: theme.spacing(2),
+                    [`@media (max-width: ${theme.breakpoints.mobile})`]: {
+                        gridTemplateColumns: '1fr',
+                        padding: 0
+                    }
                 }}
             >
                 {blogPosts.map((post) => (

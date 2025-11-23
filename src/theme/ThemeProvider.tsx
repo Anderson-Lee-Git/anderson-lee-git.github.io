@@ -47,8 +47,14 @@ export interface Theme {
     primary: string;
     secondary: string;
     accent: string;
+    highlight: string;
     typography: Typography;
     spacing: (multiplier: number) => string;
+    breakpoints: {
+        mobile: string;
+        tablet: string;
+        desktop: string;
+    };
 }
 
 interface ThemeContextType {
@@ -58,11 +64,12 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 const theme: Theme = {
-    text: '#0a0f10',
-    background: '#f2f6f7',
-    primary: '#2a6b7b',
-    secondary: '#5d6970',
-    accent: '#3a4a8c',
+    text: '#263238', // Blue Grey 900
+    background: '#ffffff',
+    primary: '#00796b', // Teal 700
+    secondary: '#004d40', // Teal 900
+    accent: '#009688', // Teal 500
+    highlight: '#ef6c00', // Orange 800 - High contrast for highlights like "Oral"
     typography: {
         h1: {
             fontSize: '2.5rem',
@@ -91,18 +98,23 @@ const theme: Theme = {
         },
         body1: {
             fontSize: '1rem',
-            lineHeight: 1.5
+            lineHeight: 1.6
         },
         body2: {
             fontSize: '0.875rem',
-            lineHeight: 1.4
+            lineHeight: 1.5
         },
         nav: {
             fontSize: '1.0rem',
-            fontWeight: 400
+            fontWeight: 500
         }
     },
-    spacing: (multiplier: number) => `${0.5 * multiplier}rem`
+    spacing: (multiplier: number) => `${0.5 * multiplier}rem`,
+    breakpoints: {
+        mobile: '768px',
+        tablet: '1024px',
+        desktop: '1200px'
+    }
 };
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
@@ -116,6 +128,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
                         transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
                         margin: 0;
                         padding: 0;
+                        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
                     }
                     
                     /* Style links but exclude navigation links */
@@ -123,11 +136,21 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
                         color: ${theme.primary};
                         text-decoration: none;
                         transition: color 0.2s ease;
+                        font-weight: 500;
                     }
                     
                     a:not(nav a):hover {
                         color: ${theme.accent};
                         text-decoration: underline;
+                    }
+
+                    /* Improve typography readability */
+                    p {
+                        margin-bottom: 1rem;
+                    }
+                    
+                    li {
+                        margin-bottom: 0.5rem;
                     }
                 `}
             />

@@ -47,6 +47,24 @@ const PublicationCard: React.FC<PublicationCardProps> = ({
         );
     };
 
+    const highlightVenue = (text: string) => {
+        // Split by "Oral" but keep the delimiter using capturing group
+        const parts = text.split(/\b(Oral)\b/g);
+        return (
+            <>
+                {parts.map((part, index) =>
+                    part === 'Oral' ? (
+                        <Box component="span" key={index} sx={{ color: theme.highlight, fontWeight: 'bold' }}>
+                            {part}
+                        </Box>
+                    ) : (
+                        part
+                    )
+                )}
+            </>
+        );
+    };
+
     return (
         <Paper
             elevation={0}
@@ -69,7 +87,7 @@ const PublicationCard: React.FC<PublicationCardProps> = ({
                 color: theme.text,
                 fontStyle: 'italic',
             }}>
-                {venue}
+                {highlightVenue(venue)}
             </Typography>
             {paper_url && (
                 <Typography sx={{ ...theme.typography.body1, display: 'inline', marginRight: '10px' }}>

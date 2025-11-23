@@ -11,46 +11,86 @@ const About: React.FC = () => {
             sx={{
                 maxWidth: '1000px',
                 margin: '0 auto',
-                padding: theme.spacing(4)
+                padding: theme.spacing(4),
+                [`@media (max-width: ${theme.breakpoints.mobile})`]: {
+                    padding: theme.spacing(2)
+                }
             }}
         >
             <Box
                 sx={{
                     display: 'flex',
                     gap: theme.spacing(6),
-                    alignItems: 'flex-start'
+                    alignItems: 'flex-start',
+                    flexDirection: 'row',
+                    [`@media (max-width: ${theme.breakpoints.mobile})`]: {
+                        flexDirection: 'column',
+                        gap: theme.spacing(4),
+                        alignItems: 'center'
+                    }
                 }}
             >
-                <Box sx={{ flex: '0 0 30%' }}>
+                <Box sx={{
+                    flex: '0 0 30%',
+                    [`@media (max-width: ${theme.breakpoints.mobile})`]: {
+                        width: '100%',
+                        flex: 'auto',
+                        display: 'flex',
+                        justifyContent: 'center'
+                    }
+                }}>
                     <img
                         src="/profile.jpg"
                         alt="Profile"
                         style={{
                             marginTop: theme.spacing(1),
                             width: '100%',
-                            maxWidth: '400px',
+                            maxWidth: '400px', // Limit max width on mobile
                             borderRadius: theme.spacing(2),
-                            boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                            boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
                         }}
                     />
                 </Box>
-                <Box sx={{ flex: '0 0 65%' }}>
+                <Box sx={{
+                    flex: '0 0 65%',
+                    [`@media (max-width: ${theme.breakpoints.mobile})`]: {
+                        width: '100%',
+                        flex: 'auto'
+                    }
+                }}>
                     <Typography
+                        variant="h1"
                         sx={{
                             ...theme.typography.h1,
                             color: theme.text,
+                            fontSize: theme.typography.h1.fontSize, // Ensure precedence
+                            [`@media (max-width: ${theme.breakpoints.mobile})`]: {
+                                fontSize: '2rem', // Smaller on mobile
+                                textAlign: 'center'
+                            }
                         }}
                     >
                         Anderson Lee
                     </Typography>
                     <Typography
+                        component="div"
                         sx={{
                             ...theme.typography.body1,
-                            color: theme.text
+                            color: theme.text,
+                            '& a': {
+                                color: theme.primary,
+                                textDecoration: 'none',
+                                fontWeight: 500,
+                                transition: 'color 0.2s',
+                                '&:hover': {
+                                    color: theme.accent,
+                                    textDecoration: 'underline'
+                                }
+                            }
                         }}
                     >
                         I'm a first-year PhD student at Princeton University advised by Professor <a href="https://www.korolova.com/" target="_blank" rel="noopener noreferrer">Aleksandra Korolova</a>. My research interest includes:
-                        <ul>
+                        <ul style={{ paddingLeft: '1.5rem', marginTop: '0.5rem' }}>
                             <li>
                                 <b>Data-centric ML</b>: How do we construct, filter, and use high-quality and diverse data for training ML models efficiently under a fixed-algorithm paradigm?
                             </li>
