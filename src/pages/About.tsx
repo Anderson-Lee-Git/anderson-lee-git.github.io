@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useTheme } from '../theme/ThemeProvider';
+import cvPdf from '../assets/cv.pdf';
 
 const About: React.FC = () => {
     const { theme } = useTheme();
@@ -30,15 +31,17 @@ const About: React.FC = () => {
                     }
                 }}
             >
-                <Box sx={{
-                    flex: '0 0 30%',
-                    [`@media (max-width: ${theme.breakpoints.mobile})`]: {
-                        width: '100%',
-                        flex: 'auto',
+                <Box
+                    sx={{
+                        flex: '0 0 30%',
                         display: 'flex',
-                        justifyContent: 'center'
-                    }
-                }}>
+                        justifyContent: 'center',
+                        [`@media (max-width: ${theme.breakpoints.mobile})`]: {
+                            width: '100%',
+                            flex: 'auto'
+                        }
+                    }}
+                >
                     <img
                         src="/profile.jpg"
                         alt="Profile"
@@ -101,8 +104,69 @@ const About: React.FC = () => {
                         Prior to Princeton, I got my undergraduate degree in Computer Science at University of Washington, advised by Professor <a href="https://jamiemorgenstern.com/#" target="_blank" rel="noopener noreferrer">Jamie Morgenstern</a> and <a href="https://rachelhong.me/" target="_blank" rel="noopener noreferrer">Rachel Hong</a>. I was very fortunate to work with them on <i>evaluating bias mitigation methods with incomplete demographic information setup</i>. I also had an amazing opportunity to work with <a href="https://emazuh.github.io/" target="_blank" rel="noopener noreferrer">Emmanuel Mensah</a> on <i>low-resource audio-visual transformers for wildlife monitoring</i>.
                         <br></br>
                         <br></br>
-                        Outside of school and work, I enjoy playing badminton and guitar. I'm also learning how to snowboard.
+                        Before coming to the United States, I was born and raised in Tainan City, Taiwan 🇹🇼. Outside of school and work, I enjoy playing badminton and guitar.
                     </Typography>
+                    <Box
+                        sx={{
+                            mt: theme.spacing(2),
+                            mb: theme.spacing(2),
+                            borderTop: '2px solid rgba(0, 0, 0, 0.08)',
+                            width: '100%'
+                        }}
+                    />
+                    <Box
+                        sx={{
+                            mt: theme.spacing(1),
+                            display: 'flex',
+                            justifyContent: 'left',
+                            alignItems: 'center',
+                            fontSize: '0.95rem',
+                            color: theme.text,
+                            '& a': {
+                                color: theme.primary,
+                                textDecoration: 'none',
+                                fontWeight: 500,
+                                transition: 'color 0.2s',
+                                '&:hover': {
+                                    color: theme.accent,
+                                    textDecoration: 'underline'
+                                }
+                            },
+                            '& > *:not(:last-of-type)': {
+                                position: 'relative',
+                                paddingRight: theme.spacing(2),
+                                marginRight: theme.spacing(2),
+                                '&::after': {
+                                    content: '""',
+                                    position: 'absolute',
+                                    top: '50%',
+                                    right: 0,
+                                    transform: 'translateY(-50%)',
+                                    width: '1px',
+                                    height: '1.2rem',
+                                    backgroundColor: 'rgba(0, 0, 0, 0.20)'
+                                }
+                            }
+                        }}
+                    >
+                        <Typography component="span">
+                            <a href={cvPdf} target="_blank" rel="noopener noreferrer">
+                                CV
+                            </a>
+                        </Typography>
+                        <Typography component="span">
+                            <a
+                                href="https://scholar.google.com/citations?hl=en&user=o6UuNqgAAAAJ"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Google Scholar
+                            </a>
+                        </Typography>
+                        <Typography component="span">
+                            cl6486 [ at ] princeton [ dot ] edu
+                        </Typography>
+                    </Box>
                 </Box>
             </Box>
         </Box>
