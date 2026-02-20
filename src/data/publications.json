@@ -1,6 +1,24 @@
 {
     "publications": [
         {
+            "title": "The Geometry of Alignment Collapse: When Fine-Tuning Breaks Safety",
+            "main_authors": [
+                "Max Springer"
+            ],
+            "contributors": [
+                "Chung Peng Lee",
+                "Blossom Metevier",
+                "Jane Castleman",
+                "Bohdan Turbal",
+                "Hayoung Jung",
+                "Zeyu Shen",
+                "Aleksandra Korolova"
+            ],
+            "venue": "Preprint",
+            "paper_url": "https://arxiv.org/abs/2602.15799",
+            "code_url": ""
+        },
+        {
             "title": "How do data owners say no? A case study of data consent mechanisms in web-scraped vision-language AI training datasets",
             "main_authors": [
                 "Chung Peng Lee"
