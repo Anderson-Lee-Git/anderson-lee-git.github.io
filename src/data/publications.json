@@ -19,6 +19,28 @@
             "code_url": ""
         },
         {
+            "title": "WorldBench: A Challenging and Visually Diverse Multimodal Benchmark",
+            "main_authors": [
+                "Yida Yin"
+            ],
+            "contributors": [
+                "Harish Krishnakumar",
+                "Chung Peng Lee",
+                "Boya Zeng",
+                "Wenhao Chai",
+                "Shengbang Tong",
+                "Wenhu Chen",
+                "Hu Xu",
+                "Xingyu Fu",
+                "Gabriel Herbert Sarch",
+                "Aleksandra Korolova",
+                "Zhuang Liu"
+            ],
+            "venue": "CVPR 2026",
+            "paper_url": "",
+            "code_url": ""
+        },
+        {
             "title": "How do data owners say no? A case study of data consent mechanisms in web-scraped vision-language AI training datasets",
             "main_authors": [
                 "Chung Peng Lee"
