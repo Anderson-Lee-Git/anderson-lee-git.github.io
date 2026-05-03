@@ -36,12 +36,12 @@
                 "Aleksandra Korolova",
                 "Zhuang Liu"
             ],
-            "venue": "CVPR 2026",
+            "venue": "In Submission",
             "paper_url": "",
             "code_url": ""
         },
         {
-            "title": "How do data owners say no? A case study of data consent mechanisms in web-scraped vision-language AI training datasets",
+            "title": "How Do Data Owners Say No? A Case Study of Data Consent Mechanisms in Web-Scraped Vision-Language AI Training Datasets",
             "main_authors": [
                 "Chung Peng Lee"
             ],
@@ -75,7 +75,7 @@
             "code_url": "https://github.com/Anderson-Lee-Git/SpuriVerse"
         },
         {
-            "title": "Fairness through partial awareness: Evaluation of the addition of demographic information for bias mitigation methods",
+            "title": "Fairness Through Partial Awareness: Evaluation of the Addition of Demographic Information for Bias Mitigation Methods",
             "main_authors": [
                 "Chung Peng Lee"
             ],
