@@ -92,13 +92,13 @@ const About: React.FC = () => {
                             }
                         }}
                     >
-                        I'm a first-year PhD student at Princeton University advised by Professor <a href="https://www.korolova.com/" target="_blank" rel="noopener noreferrer">Aleksandra Korolova</a>. My research interest includes:
+                        I'm a first-year PhD student at Princeton University advised by Professor <a href="https://www.korolova.com/" target="_blank" rel="noopener noreferrer">Aleksandra Korolova</a>. Things that have been on top of my head:
                         <ul style={{ paddingLeft: '1.5rem', marginTop: '0.5rem' }}>
                             <li>
-                                <b>Data-centric ML</b>: How do we construct, filter, and use high-quality and diverse data for training ML models efficiently under a fixed-algorithm paradigm?
+                                <b>Data-centric ML</b>: What's the role of data in frontier machine intelligence? How do we curate, synthetically generate, and filter data under a fixed algorithm paradigm?
                             </li>
                             <li>
-                                <b>Reliability</b>: How can we make ML systems robust to adversarial or distribution shifts? How do models generalize to unseen domains and data given a massive amount of training data?
+                                <b>Multimodal Intelligence</b>: What data makes a good demonstration that we can model to hope for the emergence of intelligence? Is the prediction of next frame an efficient demonstration of rational decision-making? What role does language play to abstract the multimodal sensing, when does it help, and when does it not help?
                             </li>
                         </ul>
                         Prior to Princeton, I got my undergraduate degree in Computer Science at University of Washington, advised by Professor <a href="https://jamiemorgenstern.com/#" target="_blank" rel="noopener noreferrer">Jamie Morgenstern</a> and <a href="https://rachelhong.me/" target="_blank" rel="noopener noreferrer">Rachel Hong</a>. I was very fortunate to work with them on <i>evaluating bias mitigation methods with incomplete demographic information setup</i>. I also had an amazing opportunity to work with <a href="https://emazuh.github.io/" target="_blank" rel="noopener noreferrer">Emmanuel Mensah</a> on <i>low-resource audio-visual transformers for wildlife monitoring</i>.

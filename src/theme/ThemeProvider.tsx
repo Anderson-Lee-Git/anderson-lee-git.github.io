@@ -1,5 +1,23 @@
 import React, { createContext, useContext, ReactNode } from 'react';
 import { Global, css } from '@emotion/react';
+import { ThemeProvider as MuiThemeProvider, createTheme } from '@mui/material/styles';
+
+const fontBody = "'Bitter', Georgia, 'Times New Roman', serif";
+
+const fontHeading =
+    "'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif";
+
+const muiTheme = createTheme({
+    typography: {
+        fontFamily: fontBody,
+        h1: { fontFamily: fontHeading },
+        h2: { fontFamily: fontHeading },
+        h3: { fontFamily: fontHeading },
+        h4: { fontFamily: fontHeading },
+        h5: { fontFamily: fontHeading },
+        h6: { fontFamily: fontHeading }
+    }
+});
 
 interface Typography {
     h1: {
@@ -120,15 +138,30 @@ const theme: Theme = {
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     return (
         <ThemeContext.Provider value={{ theme }}>
-            <Global
-                styles={css`
+            <MuiThemeProvider theme={muiTheme}>
+                <Global
+                    styles={css`
                     body {
                         background-color: ${theme.background};
                         color: ${theme.text};
                         transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
                         margin: 0;
                         padding: 0;
-                        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+                        font-family: ${fontBody};
+                    }
+
+                    nav {
+                        font-family: ${fontHeading};
+                    }
+
+                    /* Markdown renders native h1–h6, not MuiTypography */
+                    h1,
+                    h2,
+                    h3,
+                    h4,
+                    h5,
+                    h6 {
+                        font-family: ${fontHeading};
                     }
                     
                     /* Style links but exclude navigation links */
@@ -153,8 +186,9 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
                         margin-bottom: 0.5rem;
                     }
                 `}
-            />
-            {children}
+                />
+                {children}
+            </MuiThemeProvider>
         </ThemeContext.Provider>
     );
 };

@@ -31,6 +31,7 @@ const Experience: React.FC = () => {
             }}
         >
             <Typography
+                variant="h3"
                 sx={{
                     ...theme.typography.h3,
                     paddingLeft: theme.spacing(3),

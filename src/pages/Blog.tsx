@@ -32,6 +32,7 @@ const BlogList: React.FC = () => {
             }}
         >
             <Typography
+                variant="h3"
                 component="div"
                 sx={{
                     ...theme.typography.h3,
