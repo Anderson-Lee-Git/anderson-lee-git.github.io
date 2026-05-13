@@ -1,6 +1,21 @@
 {
     "publications": [
         {
+            "title": "M3Risk: Assessing the Helpfulness of MLLMs for Malicious Intent-Driven Misuse",
+            "main_authors": [
+                "Chung Peng Lee"
+            ],
+            "contributors": [
+                "Ryo Hachiuma",
+                "Hayoung Jung",
+                "Aleksandra Korolova",
+                "Yusuke Hirota"
+            ],
+            "venue": "In Submission",
+            "paper_url": "",
+            "code_url": ""
+        },
+        {
             "title": "The Geometry of Alignment Collapse: When Fine-Tuning Breaks Safety",
             "main_authors": [
                 "Max Springer"
