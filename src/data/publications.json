@@ -16,6 +16,42 @@
             "code_url": ""
         },
         {
+            "title": "Massive Spikes in LLMs are Bias Vectors: Mechanistic Uncovering and Spike-Free Quantization",
+            "main_authors": [
+                "Yung-Chin Chen"
+            ],
+            "contributors": [
+                "Chung Peng Lee",
+                "Ze-Wei Liou",
+                "Naveen Verma"
+            ],
+            "venue": "Preprint",
+            "paper_url": "https://arxiv.org/abs/2606.02288",
+            "code_url": ""
+        },
+        {
+            "title": "WorldBench: A Challenging and Visually Diverse Multimodal Benchmark",
+            "main_authors": [
+                "Yida Yin",
+                "Harish Krishnakumar"
+            ],
+            "contributors": [
+                "Chung Peng Lee",
+                "Boya Zeng",
+                "Wenhao Chai",
+                "Shengbang Tong",
+                "Wenhu Chen",
+                "Hu Xu",
+                "Xingyu Fu",
+                "Gabriel Herbert Sarch",
+                "Aleksandra Korolova",
+                "Zhuang Liu"
+            ],
+            "venue": "Preprint",
+            "paper_url": "https://arxiv.org/abs/2606.06538",
+            "code_url": ""
+        },
+        {
             "title": "The Geometry of Alignment Collapse: When Fine-Tuning Breaks Safety",
             "main_authors": [
                 "Max Springer"
@@ -31,28 +67,6 @@
             ],
             "venue": "Preprint",
             "paper_url": "https://arxiv.org/abs/2602.15799",
-            "code_url": ""
-        },
-        {
-            "title": "WorldBench: A Challenging and Visually Diverse Multimodal Benchmark",
-            "main_authors": [
-                "Yida Yin"
-            ],
-            "contributors": [
-                "Harish Krishnakumar",
-                "Chung Peng Lee",
-                "Boya Zeng",
-                "Wenhao Chai",
-                "Shengbang Tong",
-                "Wenhu Chen",
-                "Hu Xu",
-                "Xingyu Fu",
-                "Gabriel Herbert Sarch",
-                "Aleksandra Korolova",
-                "Zhuang Liu"
-            ],
-            "venue": "In Submission",
-            "paper_url": "",
             "code_url": ""
         },
         {
