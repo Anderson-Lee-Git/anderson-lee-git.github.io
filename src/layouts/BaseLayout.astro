@@ -1,0 +1,73 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import { site } from '../config/site';
+
+interface Props {
+    /** Page title; the site name is appended. Omit on the home page. */
+    title?: string;
+    description?: string;
+    /** Drop the page padding, e.g. for content that manages its own spacing. */
+    disableGutters?: boolean;
+    /** Canonical path when the page is reachable at more than one URL. */
+    canonicalPath?: string;
+}
+
+const { title, description = site.description, disableGutters = false, canonicalPath } = Astro.props;
+const fullTitle = title ? `${title} | ${site.name}` : site.name;
+const canonical = new URL(canonicalPath ?? Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{fullTitle}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:title" content={fullTitle} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:type" content="website" />
+        <link rel="icon" href="/head.png" type="image/png" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#00796b" />
+        <link rel="sitemap" href="/sitemap-index.xml" />
+        {
+            import.meta.env.BLOG_ENABLED && (
+                <link rel="alternate" type="application/rss+xml" title={`${site.name} - Blog`} href="/rss.xml" />
+            )
+        }
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:ital,wght@0,500;0,600;0,700;1,400&display=swap"
+            rel="stylesheet"
+        />
+        <slot name="head" />
+    </head>
+    <body>
+        <Navigation />
+        <main class:list={['page', { gutters: !disableGutters }]}>
+            <slot />
+        </main>
+    </body>
+</html>
+
+<style>
+    .page {
+        max-width: var(--content-width);
+        margin: 0 auto;
+    }
+
+    .gutters {
+        padding: 2rem;
+    }
+
+    @media (max-width: 768px) {
+        .gutters {
+            padding: 1rem;
+        }
+    }
+</style>

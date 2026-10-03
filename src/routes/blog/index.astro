@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getBlogPosts } from '../../lib/content';
+
+const posts = await getBlogPosts();
+---
+
+<BaseLayout title="Blog">
+    <PageHeader
+        title="Blog"
+        intro="A collection of my thoughts toward concepts. No guarantee to pass AI-generated content check :) Feel free to contact me if there is any mistake made in the blog posts."
+    />
+    <div class="grid">
+        {posts.map(post => <BlogCard post={post} />)}
+    </div>
+</BaseLayout>
+
+<style>
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .grid {
+            grid-template-columns: 1fr;
+            padding: 0;
+        }
+    }
+</style>

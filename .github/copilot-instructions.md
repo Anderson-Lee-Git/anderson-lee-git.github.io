@@ -1,36 +1,31 @@
 # Purpose
-The codebase is for an academic-style personal website with consistent theme color.
+The codebase is for an academic-style personal website with a consistent theme color, built with Astro. See README.md for the project layout.
 
-# Page
+# Pages
 ## About
 - Name, profile picture and a paragraph of introduction
-## Blog
-- A page containing a list of blogs as cards
-- Each blog is consumed from files in a folder (blog/) in markdown format
 ## Publications
-- A list of publication cards consumed from a .bib reference file
+- A list of publications from `src/content/publications.json`
+## Blog
+- A list of blog cards; posts are markdown files in `src/content/blog/` with front matter validated by `src/content.config.ts`
+- Hidden from the public site until `blogPublic` in `src/config/features.js` is true; always visible in `npm run dev`
 ## Other Experience
 - A list of experience cards with a picture on the left, title, period, and short description
 
-# Development Requirement
-- Ensure to use components that are re-usable
-- Use React functional component
-- Use TypeScript
-- For css-related styles, make sure to use the theme instead of making customized fontsize, fontweight, or font family for each component. If the theme does not contain some specifications, feel free to update the theme.
+# Development Requirements
+- Use `.astro` components and TypeScript; keep pages static (avoid client-side JavaScript unless needed for interaction)
+- Ensure components are re-usable; wrap pages in `BaseLayout` and use `PageHeader` for titles
+- Styles come from `src/styles/global.css`: use the CSS variables (`--color-*`, `--font-*`) and typography classes (`t-h1`, `t-h3`, `t-card-title`, `t-body1`, `t-body2`). Don't hard-code font sizes, weights, families or colors in components; add a token or class if something is missing
+- Component styles go in the component's scoped `<style>` block; the mobile breakpoint is `@media (max-width: 768px)`
+- In templates, a line break next to an inline element is dropped (as in JSX). Break lines between plain words, or keep the element and the following text on one line
 - Avoid using background color, try to use lines to characterize elements
-- Avoid using `Grid` from `@mui/material`
+- Site-wide strings (name, links, nav items) live in `src/config/site.ts`
+- Run `npm run lint`, `npm run check` and `npm test` before committing
 
 # Theme Color
-## Light Mode
-- text: #0a0f10;
-- background: #f2f6f7;
-- primary: #6c9aa3;
-- secondary: #a7afc8;
-- accent: #858ab2;
-## Dark Mode
-- text: #eff4f5;
-- background: #080c0d;
-- primary: #5c8a93;
-- secondary: #373f58;
-- accent: #4d527a;
-
+- text: #263238 (Blue Grey 900)
+- background: #ffffff
+- primary: #00796b (Teal 700)
+- secondary: #004d40 (Teal 900)
+- accent: #009688 (Teal 500)
+- highlight: #ef6c00 (Orange 800)

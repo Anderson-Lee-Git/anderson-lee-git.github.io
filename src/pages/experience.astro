@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import ExperienceCard from '../components/ExperienceCard.astro';
+
+const experiences = await getCollection('experience');
+---
+
+<BaseLayout title="Other Stuffs">
+    <PageHeader title="Other Stuffs" />
+    <div>
+        {experiences.map(({ data }) => <ExperienceCard experience={data} />)}
+    </div>
+</BaseLayout>

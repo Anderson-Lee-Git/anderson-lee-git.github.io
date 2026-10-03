@@ -1,0 +1,53 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+    experience: CollectionEntry<'experience'>['data'];
+}
+
+const { title, organization, period, description, imageUrl } = Astro.props.experience;
+---
+
+<div class="experience">
+    <img class="image" src={imageUrl} alt={organization} />
+    <div>
+        <h2 class="t-card-title title">{title}</h2>
+        <p class="t-body1 organization">{organization}</p>
+        <p class="t-body2 period">{period}</p>
+        <p class="t-body1">{description}</p>
+    </div>
+</div>
+
+<style>
+    .experience {
+        display: flex;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        margin: 1rem;
+        color: var(--color-text);
+        border: 1px solid var(--color-secondary);
+        border-radius: 1rem;
+    }
+
+    .image {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 0.5rem;
+    }
+
+    .title {
+        color: var(--color-primary);
+        margin-bottom: 0.5rem;
+    }
+
+    .organization {
+        font-weight: bold;
+        margin-bottom: 0.25rem;
+    }
+
+    .period {
+        color: var(--color-secondary);
+        margin-bottom: 0.5rem;
+    }
+</style>

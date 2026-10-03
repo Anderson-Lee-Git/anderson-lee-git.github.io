@@ -1,0 +1,59 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { site } from '../config/site';
+
+interface Props {
+    publication: CollectionEntry<'publications'>['data'];
+}
+
+const { title, main_authors, contributors, venue, paper_url, code_url } = Astro.props.publication;
+const authors = [...main_authors, ...contributors].map(name => ({
+    label: `${name}${main_authors.includes(name) ? '*' : ''}`,
+    isSelf: name === site.authorName,
+}));
+// "Oral" is emphasized wherever it appears in the venue.
+const venueParts = venue.split(/\b(Oral)\b/g);
+const links = [
+    { label: 'Paper', href: paper_url },
+    { label: 'Code', href: code_url },
+].filter(link => link.href);
+---
+
+<div class="publication">
+    <p class="t-body1 title">{title}</p>
+    <p class="t-body1">
+        {authors.map((author, index) => (
+            <Fragment>{author.isSelf ? <span class="self">{author.label}</span> : author.label}{index < authors.length - 1 && ', '}</Fragment>
+        ))}
+    </p>
+    <p class="t-body1 venue">{venueParts.map(part => (part === 'Oral' ? <span class="oral">{part}</span> : part))}</p>
+    {links.map(link => <p class="t-body1 link"><a href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a></p>)}
+</div>
+
+<style>
+    .publication {
+        padding: 0.5rem;
+        margin: 1rem;
+        border-radius: 4px;
+        color: var(--color-text);
+    }
+
+    .title,
+    .self {
+        font-weight: bold;
+    }
+
+    .venue {
+        font-style: italic;
+    }
+
+    .oral {
+        color: var(--color-highlight);
+        font-weight: bold;
+    }
+
+    .link {
+        display: inline;
+        margin-right: 10px;
+    }
+</style>

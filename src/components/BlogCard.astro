@@ -1,0 +1,148 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate } from '../lib/content';
+
+interface Props {
+    post: CollectionEntry<'blog'>;
+}
+
+const { id, data } = Astro.props.post;
+---
+
+<article class="card">
+    <a class="card-link" href={`/blog/${id}/`}>
+        <div class="card-content">
+            <h2 class="t-card-title title">{data.title}</h2>
+            <p class="t-body1 date"><time datetime={formatDate(data.date)}>{formatDate(data.date)}</time></p>
+            <p class="t-body2 description">{data.description}</p>
+            {
+                data.tags.length > 0 && (
+                    <div class="tags">
+                        {data.tags.map(tag => (
+                            <span class="chip">
+                                <span class="chip-label">{tag}</span>
+                            </span>
+                        ))}
+                    </div>
+                )
+            }
+        </div>
+    </a>
+</article>
+
+<style>
+    .card {
+        height: 100%;
+        overflow: hidden;
+        background-color: var(--color-background);
+        color: var(--color-text);
+        border: 1px solid var(--color-primary);
+        border-radius: 0.5rem;
+        box-shadow:
+            0px 2px 1px -1px rgba(0, 0, 0, 0.2),
+            0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+            0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .card:hover {
+        transform: scale(1.01);
+    }
+
+    .card-link {
+        display: block;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        border-radius: inherit;
+        color: inherit;
+        text-align: inherit;
+        text-decoration: none;
+        vertical-align: middle;
+        cursor: pointer;
+        user-select: none;
+        outline: 0;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .card-link:hover {
+        color: var(--color-accent);
+        text-decoration: none;
+    }
+
+    /* Tinted overlay on hover and keyboard focus */
+    .card-link::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background-color: currentColor;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .card-link:hover::after {
+        opacity: 0.04;
+    }
+
+    .card-link:focus-visible::after {
+        opacity: 0.12;
+    }
+
+    .card-content {
+        padding: 16px;
+    }
+
+    .title {
+        color: var(--color-primary);
+        margin-bottom: 0.5rem;
+    }
+
+    .date {
+        color: var(--color-secondary);
+        margin-bottom: 1rem;
+    }
+
+    .description {
+        color: var(--color-text);
+        margin-bottom: 1rem;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .chip {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        max-width: 100%;
+        height: 24px;
+        font-family: var(--font-body);
+        font-size: 0.8125rem;
+        white-space: nowrap;
+        vertical-align: middle;
+        color: var(--color-primary);
+        background-color: #ffffff20;
+        border: 1px solid var(--color-primary);
+        border-radius: 0.25rem;
+        transition:
+            background-color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+            box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .chip:hover {
+        background-color: #00796b30;
+    }
+
+    .chip-label {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 0 8px;
+    }
+</style>

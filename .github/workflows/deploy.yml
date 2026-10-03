@@ -1,9 +1,10 @@
-name: Deploy React App to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Set this to your default branch
+      - main
+  pull_request:
 
 permissions:
   contents: write
@@ -11,25 +12,33 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '22'  # Set this to your project's Node.js version
+          node-version: '22'
           cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
 
-      - name: Build website
-        run: npm run build
+      - name: Lint
+        run: npm run lint
+
+      - name: Type check
+        run: npm run check
+
+      # Builds the site into build/ and tests the output
+      - name: Build and test
+        run: npm test
 
       - name: Deploy to GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build  # The folder the action should deploy
-          branch: gh-pages  # The branch the action should deploy to
+          folder: build
+          branch: gh-pages

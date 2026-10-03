@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../config/site';
+---
+
+<BaseLayout canonicalPath="/">
+    <div class="about">
+        <div class="photo-column">
+            <img class="photo" src="/profile.jpg" alt="Profile" />
+        </div>
+        <div class="bio-column">
+            <h1 class="t-h1 name">{site.name}</h1>
+            <!-- Astro drops a line break next to an inline element (as JSX does), so break lines between words. -->
+            <div class="t-body1 bio">
+                I'm a second-year PhD student at Princeton University advised by Professor <a href="https://www.korolova.com/" target="_blank" rel="noopener noreferrer">Aleksandra Korolova</a>. Things that have been on top of my head:
+                <ul>
+                    <li>
+                        <b>Data-centric ML</b>: What's the role of data in frontier machine intelligence? How do we
+                        curate, synthetically generate, and filter data under a fixed algorithm paradigm?
+                    </li>
+                    <li>
+                        <b>Multimodal Intelligence</b>: What data makes a good demonstration that we can model to hope
+                        for the emergence of intelligence? Is the prediction of next frame an efficient demonstration of
+                        rational decision-making? What role does language play to abstract the multimodal sensing, when
+                        does it help, and when does it not help?
+                    </li>
+                </ul>
+                Prior to Princeton, I got my undergraduate degree in Computer Science at University of Washington, advised by
+                Professor <a href="https://jamiemorgenstern.com/#" target="_blank" rel="noopener noreferrer">Jamie Morgenstern</a> and <a href="https://rachelhong.me/" target="_blank" rel="noopener noreferrer">Rachel Hong</a>. I was very
+                fortunate to work with them on <i>evaluating bias mitigation methods with incomplete demographic information setup</i>. I also had an amazing
+                opportunity to work with <a href="https://emazuh.github.io/" target="_blank" rel="noopener noreferrer">Emmanuel Mensah</a> on <i>low-resource audio-visual transformers for wildlife monitoring</i>.
+                <br />
+                <br />
+                Before coming to the United States, I was born and raised in Tainan City, Taiwan 🇹🇼. Outside of school and
+                work, I enjoy playing badminton and guitar.
+            </div>
+            <div class="divider"></div>
+            <div class="t-body1 contact">
+                <a href={site.cvUrl} target="_blank" rel="noopener noreferrer">CV</a>
+                <a href={site.scholarUrl} target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                <span>{site.email}</span>
+            </div>
+        </div>
+    </div>
+</BaseLayout>
+
+<style>
+    .about {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+
+    .photo-column {
+        flex: 0 0 30%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .photo {
+        margin-top: 0.5rem;
+        width: 100%;
+        max-width: 400px;
+        border-radius: 1rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .bio-column {
+        flex: 0 0 65%;
+    }
+
+    .bio ul {
+        padding-left: 1.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .divider {
+        margin: 1rem 0;
+        border-top: 2px solid rgba(0, 0, 0, 0.08);
+        width: 100%;
+    }
+
+    .contact {
+        line-height: 1.5;
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Vertical rule between items */
+    .contact > :not(:last-child) {
+        position: relative;
+        padding-right: 1rem;
+        margin-right: 1rem;
+    }
+
+    .contact > :not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 1.2rem;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+        .about {
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .photo-column,
+        .bio-column {
+            width: 100%;
+            flex: auto;
+        }
+
+        .name {
+            font-size: 2rem;
+            text-align: center;
+        }
+    }
+</style>

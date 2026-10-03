@@ -1,0 +1,40 @@
+---
+interface Props {
+    title: string;
+    intro?: string;
+}
+
+const { title, intro } = Astro.props;
+---
+
+<h1 class="t-h3 title">{title}</h1>
+{intro && <p class="t-body1 intro">{intro}</p>}
+
+<style>
+    .title,
+    .intro {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .intro {
+        margin-top: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .title,
+        .intro {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+
+        .title {
+            font-size: 1.5rem;
+        }
+
+        .intro {
+            font-size: 0.9rem;
+        }
+    }
+</style>

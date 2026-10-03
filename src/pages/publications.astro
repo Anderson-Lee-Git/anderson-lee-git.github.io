@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import PublicationCard from '../components/PublicationCard.astro';
+import { getPublications } from '../lib/content';
+
+const publications = await getPublications();
+---
+
+<BaseLayout title="Publications">
+    <PageHeader title="Publications" />
+    <div>
+        {publications.map(publication => <PublicationCard publication={publication} />)}
+    </div>
+</BaseLayout>
