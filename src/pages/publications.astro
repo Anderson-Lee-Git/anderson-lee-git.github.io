@@ -8,7 +8,7 @@ const publications = await getPublications();
 ---
 
 <BaseLayout title="Publications">
-    <PageHeader title="Publications" />
+    <PageHeader title="Publications" intro="* denotes equal contribution. † denotes equal advising." />
     <div>
         {publications.map(publication => <PublicationCard publication={publication} />)}
     </div>

@@ -69,11 +69,26 @@ describe('publications', () => {
         expect(titles).toEqual(publicationsData.publications.map(pub => pub.title));
     });
 
-    it('bolds the site author and stars main authors', () => {
+    it('explains the star and dagger once, below the page title', () => {
+        expect(text(doc.querySelector('h1 + .intro'))).toBe('* denotes equal contribution. † denotes equal advising.');
+    });
+
+    it('bolds the site author and stars main authors only when they share first authorship', () => {
         const self = [...doc.querySelectorAll('.self')].map(text);
         expect(self.length).toBeGreaterThan(0);
         expect(self.every(name => name.replace(/\*$/, '') === site.authorName)).toBe(true);
         expect(self).toContain(`${site.authorName}*`);
+    });
+
+    it('daggers equal advisors and stars only shared main authors', () => {
+        const cards = [...doc.querySelectorAll('.publication')];
+        publicationsData.publications.forEach((pub, i) => {
+            const advisors = ('equal_advisors' in pub && pub.equal_advisors) || [];
+            const authors = text(cards[i].querySelector('.title + p'));
+            for (const name of advisors) expect(authors).toContain(`${name}†`);
+            const starred = pub.main_authors.length > 1;
+            for (const name of pub.main_authors) expect(authors.includes(`${name}*`), name).toBe(starred);
+        });
     });
 
     it('hides empty paper and code links', () => {

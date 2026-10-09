@@ -28,6 +28,8 @@ const publications = defineCollection({
         title: z.string(),
         main_authors: z.array(z.string()).min(1),
         contributors: z.array(z.string()),
+        /** Authors marked with a dagger for equal advising. */
+        equal_advisors: z.array(z.string()).default([]),
         venue: z.string(),
         /** Empty string when there is no link. */
         paper_url: z.string(),
